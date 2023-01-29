@@ -45,7 +45,7 @@ export class ListAdvicesComponent implements OnInit {
   dataUser: UserLoginSucess;
 
   constructor(private httpClient: HttpClientService, private spinner: SpinnerService,
-    private authService: AuthService, private dialog: MatDialog, private snackBarService: SnackBarService,private router: Router) { }
+    private authService: AuthService, private dialog: MatDialog, private snackBarService: SnackBarService, private router: Router) { }
 
   ngOnInit(): void {
     if (!this.isTeacher && !this.isAdmin) {
@@ -71,6 +71,8 @@ export class ListAdvicesComponent implements OnInit {
       .subscribe((result: ResponseService<AdviceList>) => {
         if (result.status == 200) {
           this.datos = result.data;
+        } else if (result.status == 409) {
+          this.snackBarService.openSnackBar("No hay asesorias creadas");
         }
         this.spinner.stop(spinner);
       });
