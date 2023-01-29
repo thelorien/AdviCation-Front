@@ -1,0 +1,14 @@
+<div [style.height]="'auto'">
+  <mat-carousel timings="250ms ease-in" [autoplay]="true" [interval]="5000" color="accent" maxWidth="auto"
+    [proportion]="40" [slides]="9" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true"
+    [useMouseWheel]="false" orientation="ltr" [slideHeight]="'100%'" [color]="'primary'">
+    <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
+      overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
+  </mat-carousel>
+</div>
+<mat-card class="bg-white">
+  <mat-card-title class="title-center text-dark">¡ Asesorias AdviCation !</mat-card-title>
+  <mat-card-subtitle class="description-asesorias text-dark">Brindando una estrategia para avanzar en la importancia de
+    la educación. Para AdviCation lo más importante eres tú y la factibilidad en tu evolución educativa facilitando las
+    asesorías que necesitas hoy.</mat-card-subtitle>
+</mat-card>

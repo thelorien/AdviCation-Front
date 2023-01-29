@@ -1,0 +1,19 @@
+<div class="text-center container w-50 p-5 m-5 mx-auto bg-dark">
+  <h4 class="text-center">Crear Materia</h4>
+  <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()" novalidate class="w-100 mx-auto">
+
+    <mat-form-field class="w-100 d-block" appearance="fill">
+      <mat-label>Ingresa nombre de la materia</mat-label>
+      <input formControlName="name" class="w-100" matInput required>
+    </mat-form-field>
+
+    <mat-form-field class="w-100 d-block" appearance="fill">
+      <mat-label>Ingresa la descripción de la materia</mat-label>
+      <textarea formControlName="description" matInput required></textarea>
+    </mat-form-field>
+
+    <button [disabled]="!subjectForm.valid" mat-raised-button color="primary" mat-button>Crear materia</button>
+    
+  </form>
+
+</div>

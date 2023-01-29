@@ -1,0 +1,17 @@
+<mat-toolbar class="mat-elevation-z6">
+  <button mat-button [routerLink]="['/']"><span><mat-icon>library_books</mat-icon>AdviCation</span></button>
+  <button mat-button [routerLink]="['/subjects']">Materias</button>
+  <button *ngIf="isLogin && isStudent || isAdmin" mat-button [routerLink]="['student/list-advices']">Separar Asesoria</button>
+  <button *ngIf="isLogin && isStudent || isAdmin" mat-button [routerLink]="['student/cancel-advice']">Cancelar Asesorias</button>
+  <button *ngIf="isLogin && isAdmin" mat-button [routerLink]="['/admin/list-users']">Gestionar Usuarios</button>
+  <button *ngIf="isLogin && isTeacher || isAdmin" mat-button [routerLink]="['/teacher/create-advice']">Crear Asesoria</button>
+  <button *ngIf="isLogin && isTeacher || isAdmin" mat-button [routerLink]="['/teacher/list-advices']">Asesorias Creadas por mi</button>
+  <button *ngIf="isLogin && isSecretary || isAdmin" mat-button [routerLink]="['/secretary/reports']">Ver reportes</button>
+  <button *ngIf="isLogin && isSecretary || isAdmin" mat-button [routerLink]="['/secretary/add-subject']">Agregar materia</button>
+  <div class="spacer"></div>
+  <button *ngIf="!isLogin" mat-button [routerLink]="['/auth/login']">Iniciar Sesión</button>
+  <button *ngIf="!isLogin" mat-raised-button [routerLink]="['/auth/register']">Registrarse</button>
+  <button *ngIf="isLogin" mat-button >{{nameAndId[0]}}</button>
+  <button *ngIf="isLogin" mat-button (click)="closeSession()">Cerrar Sesión</button>
+</mat-toolbar>
+

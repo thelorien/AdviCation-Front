@@ -1,0 +1,16 @@
+<main class="main-modal-edit-user">
+  <h2 mat-dialog-title>Elegir hora</h2>
+  <mat-dialog-content [formGroup]="formTime">
+    <mat-form-field appearance="fill">
+      <mat-label>Hora</mat-label>
+      <mat-select name="Time" [(value)]="selected" formControlName="Time" required>
+        <mat-option [value]="item" *ngFor="let item of lista">{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="formTime.invalid" [mat-dialog-close]="closeModal"
+      (click)="setAdvice()">Guardar</button>
+  </mat-dialog-actions>
+</main>

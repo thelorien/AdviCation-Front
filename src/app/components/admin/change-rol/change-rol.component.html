@@ -1,0 +1,16 @@
+<main class="main-modal-edit-user">
+  <h2 mat-dialog-title>Elige el rol</h2>
+  <mat-dialog-content [formGroup]="formRols">
+    <mat-form-field appearance="fill">
+      <mat-label>Rol</mat-label>
+      <mat-select name="rol" [(value)]="selected" formControlName="rol" required>
+        <mat-option [value]="item.id" *ngFor="let item of rols">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="!formRols.valid" [mat-dialog-close]="closeModal"
+      (click)="changeRol()">Guardar</button>
+  </mat-dialog-actions>
+</main>
